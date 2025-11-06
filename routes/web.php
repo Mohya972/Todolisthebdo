@@ -15,7 +15,6 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard/task', [TaskController::class, 'index'])->name('task.index');
     Route::get('/dashboard/task/{task}', [TaskController::class, 'show'])->name('task.show');
-    Route::get('/dashboard/task/create', [TaskController::class, 'create'])->name('task.create');
     Route::post('/dashboard/task', [TaskController::class, 'store'])->name('task.store');
     
 

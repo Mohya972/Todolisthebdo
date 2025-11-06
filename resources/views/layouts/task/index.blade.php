@@ -16,20 +16,32 @@
         </div>
         
         <!-- Formulaire d'ajout -->
+        
+
         <div class="p-6 border-b">
-            <form class="flex gap-2">
-                <input 
-                    type="text" 
+            <form action="{{route('task.store')}}" method="POST">
+            @csrf
+
+            <div class="flex items-center"> 
+                <div>
+                    <input name="title" type="text" 
                     placeholder=  "Nouvelle tâche..." 
-                    class="flex-grow px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                >
-                <button 
-                    type="submit" 
-                    class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
-                >
+                    class="flex-grow px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <input name="description" type="text" 
+                    placeholder=  "Description..." 
+                    class="flex-grow px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <button type="submit" 
+                    class="bg-indigo-600 text-white px-6 py-6 rounded-lg hover:bg-indigo-700 transition-colors">
                     <i class="fas fa-plus"></i>
-                </button>
-            </form>
+                    </button>
+                </div>
+            </div>
+
+            
+            
+        </form>
         </div>
         
         <!-- Liste des tâches -->

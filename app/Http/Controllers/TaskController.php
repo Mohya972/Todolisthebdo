@@ -13,31 +13,25 @@ class TaskController extends Controller
     public function index()
     {   
         $tasks=Task::all();
+       // dd($tasks);
         return view('layouts.task.index',compact('tasks'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-        return view('layouts.task.create');
-    }
+    
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        
+
         $validated = $request->validate([ 
             'title' => 'required|max:255',
-            'state' => 'required',
-            'description' => 'required',
+            'description' => 'nullable|string',
         ]);
         $task = Task::create($validated);
-        return redirect()->route('task.index')->with('success', 'Task created successfully.');
+        return redirect()->route('task.index');
     }
 
     /**
