@@ -35,13 +35,13 @@
         <!-- Liste des tâches -->
         <div class="p-6">
             <div class="space-y-4">
-                @forelse ($tasks as $task)
-                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <!-- Tâche 1 -->
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200">
                     <div class="flex items-center gap-3">
                         <span class="flex items-center justify-center w-6 h-6 rounded-full bg-indigo-100 text-indigo-600">
                             <i class="fas fa-circle text-xs"></i>
                         </span>
-                        <span class="text-gray-800"> <a href="{{route('task.show', $task)}}"> {{$task->title}} </a></span>
+                        <span class="text-gray-800">{{$task->title}}</span>
                     </div>
                     <div class="flex gap-2">
                         <button class="text-green-600 hover:text-green-800 transition-colors">
@@ -51,12 +51,13 @@
                             <i class="fas fa-trash"></i>
                         </button>
                     </div>
-                
                 </div>
-                @empty
-                    
-                @endforelse
-
+                <div class="flex items-center gap-3">
+                        <span class="text-gray-800  flex justify-center"> <text-center>{{$task->description}}</text-center></span> 
+                </div>
+                <div>
+                    <a href="{{route('task.index')}}"> Retour à la liste </a>
+                </div>
             </div>
             
             <!-- Statistiques -->

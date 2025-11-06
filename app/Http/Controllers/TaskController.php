@@ -22,6 +22,7 @@ class TaskController extends Controller
     public function create()
     {
         //
+        return view('layouts.task.create');
     }
 
     /**
@@ -35,9 +36,10 @@ class TaskController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Task $task)
     {
         //
+        return view('layouts.task.detail', compact('task'));
     }
 
     /**
