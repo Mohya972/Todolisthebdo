@@ -57,13 +57,33 @@ class TaskController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $task=Task::findOrFail($id);
+        switch($task->status){
+            case 'false':
+                $task->status='true';
+                break;
+            case 'true':
+                $task->status='false';
+                break;
+            
+        }
+        return redirect()->route('task.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Task $task)
     {
         //
+        $task->delete();
+
+        return redirect()->route('task.index');
+    }
+
+    public function confirmDelete(string $id)
+    {
+        $task = Task::findOrFail($id);
+        return view('layouts.task.confirm-delete', compact('task'));
     }
 }

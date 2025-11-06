@@ -59,9 +59,14 @@
                         <button class="text-green-600 hover:text-green-800 transition-colors">
                             <i class="fas fa-check"></i>
                         </button>
-                        <button class="text-red-600 hover:text-red-800 transition-colors">
-                            <i class="fas fa-trash"></i>
-                        </button>
+                        
+                        <form action="{{route('task.destroy')}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-600 hover:text-red-800 transition-colors">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
                     </div>
                 
                 </div>
